@@ -1,0 +1,53 @@
+.main__wrapper {
+  width: 100%;
+}
+
+.main__form {
+  height: 39%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: inherit;
+}
+.form__input {
+  width: 48%;
+  height: 150px;
+  margin-top: 4vh;
+  font-size: 24px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  border: 3px solid rgb(255, 230, 0);
+}
+
+.main__decoration {
+  color: rgb(255, 230, 0);
+  text-align: center;
+  font-size: 33px;
+  text-transform: uppercase;
+  animation: movein 1.4s ease-out forwards;
+  margin-top: 0px;
+}
+
+.fonttitle {
+  font-size: 22px;
+  color: orange;
+}
+.fileButton {
+  color: yellow;
+  background-color: green;
+  font-size: 12px;
+  width: 320px;
+  height: 120px;
+  box-shadow: yellowgreen;
+  outline: none;
+  margin-left: 5%;
+}
+
+@media (min-width: 768px) {
+  .main__wrapper {
+    width: 60%;
+    margin: auto;
+  }
+}

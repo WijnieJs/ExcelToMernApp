@@ -1,0 +1,88 @@
+// MIXINS
+@mixin background-cover() {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin animation($animationType) {
+  -webkit-animation: $animationType; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: $animationType; /* Firefox < 16 */
+  -ms-animation: $animationType; /* Internet Explorer */
+  -o-animation: $animationType; /* Opera < 12.1 */
+  animation: $animationType;
+}
+
+@mixin animation-fill-mode($animationMode) {
+  -webkit-animation-fill-mode: $animationMode; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: $animationMode;
+  animation-fill-mode: $animationMode;
+}
+
+@mixin animation-detail($detail) {
+  -webkit-animation-delay: $detail;
+  -moz-animation-delay: $detail;
+  animation-delay: $detail;
+}
+@keyframes enable {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes able {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes movein {
+  0% {
+    opacity: 1;
+    transform: translateX(-90%);
+  }
+  50% {
+    opacity: 60%;
+    transform: translateX(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+//screen size 890px and above
+@mixin media6 {
+  @media only screen and (min-device-width: 890px) {
+    @content;
+  }
+}

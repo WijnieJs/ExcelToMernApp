@@ -1,0 +1,59 @@
+.backSlidePanel {
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3%;
+}
+.cardcar__wrapper {
+  width: 98%;
+  margin: auto;
+  text-align: center;
+}
+
+.cardcar_p {
+  font-size: 22px;
+  margin: 8px;
+  color: $aryellow;
+  margin-bottom: 22px;
+}
+.cardcar_g {
+  font-size: 28px;
+}
+.cardcar__laad {
+  border-bottom: 1px solid $aryellow;
+  padding: 18px;
+  font-size: 44px;
+  text-transform: uppercase;
+  color: $yellow;
+  letter-spacing: 0.3rem;
+  font-family: "Roboto", sans-serif;
+}
+.cardcar__rit {
+  color: $aryellow;
+}
+.cardcar__klant {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  color: $aryellow;
+  border-left: 5px solid $pink;
+}
+
+.cardcar_p_plaats {
+  font-family: "Roboto", sans-serif;
+  color: $aryellow;
+}
+
+.cardcar_gewicht {
+  border-bottom: 1px dashed $pink;
+  color: $blue;
+}
+.card__rit_xl {
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  border-bottom: 1px solid $red;
+  color: $aryellow;
+}
