@@ -1,42 +1,46 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
- 
-
+import Button from "../../components/button/Button";
 class Mainpage extends Component {
   state = {
     carnumber: "",
-   
+    emptyMessage: "",
   };
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
 
   inputChangeHandler = (event) => {
     let value = event.target.value;
     this.checkCarList(value);
+
     this.setState({ carnumber: value });
   };
   checkCarList = (val) => {
     const cars = this.props.carlist;
-  
-    let match = cars.filter((k) => Math.floor(k) === Math.floor(val))
-    
+
+    let match = cars.filter((k) => Math.floor(k) === Math.floor(val));
+    console.log(match);
+    if (val > 2 && match.length == 0) {
+      console.log("ne");
+      this.setState({
+        emptyMessage: "Deze auto is niet ingepland voor vandaag",
+      });
+    }
     if (match > 0) {
       let id = parseInt(match);
-    
+
       this.props.history.push(`${id}`);
     }
   };
-      onSubmitHandler = (event) => {
-        event.preventDefault()
-      }
+  onSubmitHandler = (event) => {
+    event.preventDefault();
+    let message = `  Kies een andere ?`;
+    this.setState({ emptyMessage: message, carnumber: "" });
+  };
 
   render() {
-    console.log(this.props.carlist)
     return (
       <div className="main__wrapper fadein">
-     
-        <h1 className="main__decoration"> Kies  je autonummer..</h1>
+        <h1 className="main__decoration"> Kies je autonummer..</h1>
         <form className="main__form" onSubmit={this.onSubmitHandler}>
           <input
             className="form__input fadein"
@@ -45,16 +49,21 @@ class Mainpage extends Component {
             onChange={this.inputChangeHandler}
             value={this.state.carnumber}
           />
+          <Button design="raised" accent="danger">
+            OPNIEUW
+          </Button>
         </form>
-      <div>
-      {/* {this.props.carlist && (
+
+        <div>
+          {/* {this.props.carlist && (
           <ul>
           {this.props.carlist.map((iten, index) => (
               <li key={index}>{iten} </li>
           ))}
         </ul>
       )} */}
-      </div>
+          <h4 className="main__decoration">{this.state.emptyMessage} </h4>
+        </div>
       </div>
     );
   }
@@ -67,4 +76,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps ,null)(Mainpage);
+export default connect(mapStateToProps, null)(Mainpage);
