@@ -5,18 +5,19 @@ import FileLoad from "./fileLoad";
 class Admin extends Component {
   state = {
     data: [],
+    message: "",
   };
 
   fileUploadHandler = (filedata) => {
     let resultcars = [...filedata];
     this.setState({ data: resultcars });
   };
-
+  fileUploadEmptySucces = (states) => {
+    this.setState({ message: states });
+  };
   selectFileData = () => {
     const cars = this.state.data;
-
-    //  formData.append('list', data.startlist);
-    console.log(cars);
+    console.log(cars.length);
     let url = "http://localhost:5000/feed/post";
     let method = "POST";
 
@@ -28,22 +29,46 @@ class Admin extends Component {
       body: JSON.stringify(cars),
     })
       .then((res) => {
-        console.log(res);
+        this.setState({ message: "Planing toegegevoegd met succes" });
       })
       .catch((error) => {
-        console.log(error);
+        this.setState({ message: "Helaas, niet gelukt." });
       });
   };
-
+  backToMain = (props) => {
+    this.props.history.push("/");
+  };
   render() {
     console.log(this.state);
     return (
-      <div>
-        <FileLoad uploadHanler={this.fileUploadHandler} />
-        <button className="fileButton" onClick={this.selectFileData}>
-          UPLOOOOAADDDDCHANGGER
+      <>
+        <button
+          style={{
+            width: "80px",
+            height: "30px",
+            position: "absolute",
+            right: "10px",
+            top: "10px",
+            color: "black",
+            backgroundColor: "red",
+            border: "none",
+            outline: "none",
+          }}
+          onClick={this.backToMain}
+        >
+          TERUG
         </button>
-      </div>
+        <div className="admin-out-flex">
+          <FileLoad
+            uploadHanler={this.fileUploadHandler}
+            onEmpty={this.fileUploadEmptySucces}
+          />
+          <button className="file-button" onClick={this.selectFileData}>
+            OPSLAAN
+          </button>
+          <h4 className="display-message">{this.state.message}</h4>
+        </div>
+      </>
     );
   }
 }

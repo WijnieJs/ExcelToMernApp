@@ -49,9 +49,11 @@ class Mainpage extends Component {
             onChange={this.inputChangeHandler}
             value={this.state.carnumber}
           />
-          <Button design="raised" accent="danger">
-            OPNIEUW
-          </Button>
+          {this.state.emptyMessage && (
+            <Button design="raised" accent="danger">
+              OPNIEUW
+            </Button>
+          )}
         </form>
 
         <div>
@@ -62,7 +64,7 @@ class Mainpage extends Component {
           ))}
         </ul>
       )} */}
-          <h4 className="main__decoration">{this.state.emptyMessage} </h4>
+          <h4 className="sub_decoration">{this.state.emptyMessage} </h4>
         </div>
       </div>
     );

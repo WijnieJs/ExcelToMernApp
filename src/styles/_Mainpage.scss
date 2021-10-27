@@ -29,11 +29,17 @@
   text-transform: uppercase;
   animation: movein 1.4s ease-out forwards;
   margin-top: 0px;
+
+  .fonttitle {
+    font-size: 22px;
+    color: orange;
+  }
 }
 
-.fonttitle {
-  font-size: 22px;
-  color: orange;
+.sub_decoration {
+  font-size: 32px;
+  font-family: $fontspecial;
+  color: $yellow;
 }
 .fileButton {
   color: yellow;

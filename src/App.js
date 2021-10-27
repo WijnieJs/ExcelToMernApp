@@ -40,7 +40,7 @@ class App extends Component {
               <Route path="/" exact component={Mainpage} />
               <Route path="/:id" exact component={Fullcar} />
               <Route path="/detail/:id/:rit" exact component={Cardetail} />
-              <Route path="/admin/2323/pw" exact component={AdminUpload} />
+              <Route path="/admin/a/pw" exact component={AdminUpload} />
             </Switch>
           </Fragment>
         </Layout>

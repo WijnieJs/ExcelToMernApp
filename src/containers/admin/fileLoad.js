@@ -25,13 +25,15 @@ class FileLoader extends Component {
   };
 
   handleOnError = (err, file, inputElem, reason) => {
-    console.log("---------------------------");
+    console.log(file);
+    console.log(inputElem);
+    console.log(reason);
     console.log(err);
     console.log("---------------------------");
   };
 
   handleOnRemoveFile = (data) => {
-    console.log("---------------------------");
+    this.props.onEmpty("");
     console.log(data);
     console.log("---------------------------");
   };
@@ -55,29 +57,13 @@ class FileLoader extends Component {
           onRemoveFile={this.handleOnRemoveFile}
         >
           {({ file }) => (
-            <aside
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginBottom: 40,
-              }}
-            >
+            <aside className="admin-aside">
               <button
                 type="button"
                 onClick={this.handleOpenDialog}
-                style={{
-                  borderRadius: 0,
-                  marginLeft: 0,
-                  marginRight: 0,
-                  width: "60%",
-                  paddingLeft: 0,
-                  paddingRight: 0,
-                  border: "none",
-                  outline: "none",
-                }}
+                className="csvparsebutton"
               >
-                Browse file
+                SELECTEER PLANNING
               </button>
               <div
                 style={{
@@ -90,25 +76,17 @@ class FileLoader extends Component {
                   marginBottom: 35,
                   paddingLeft: 13,
                   paddingTop: 3,
-                  width: "60%",
+                  width: "88%",
                 }}
               >
                 {file && file.name}
+                {!file && <p>Kies bestand</p>}
               </div>
               <button
-                style={{
-                  borderRadius: 0,
-                  marginLeft: 0,
-                  marginRight: 0,
-                  paddingLeft: 20,
-                  paddingRight: 20,
-                  width: "200px",
-                  height: "90px",
-                  backgroundColor: " rgb(255, 81, 0)",
-                }}
+                className="file-button-empty"
                 onClick={this.handleRemoveFile}
               >
-                Remove
+                LEEG MAKEN
               </button>
             </aside>
           )}
