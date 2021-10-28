@@ -45,7 +45,7 @@ class Admin extends Component {
         <button
           style={{
             width: "80px",
-            height: "30px",
+            height: "44px",
             position: "absolute",
             right: "10px",
             top: "10px",
