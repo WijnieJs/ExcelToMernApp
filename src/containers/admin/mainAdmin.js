@@ -56,7 +56,7 @@ class Admin extends Component {
           }}
           onClick={this.backToMain}
         >
-          TERUG
+          TERREUG
         </button>
         <div className="admin-out-flex">
           <FileLoad
