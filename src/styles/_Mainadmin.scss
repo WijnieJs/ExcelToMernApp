@@ -77,11 +77,29 @@
     flex-direction: "column";
     align-items: "center";
     margin-bottom: 40;
-    width: 250px;
-    height: 300px;
+    column-gap: 20px;
+
     background-image: $primary;
     div {
       width: 100%;
+    }
+    button {
+      font-size: 33px;
+    }
+    .file-button-empty {
+      background-color: rgb(180, 30, 30);
+      color: white;
+      border: 1px solid white;
+
+      width: 199px;
+      height: 170px;
+      transform: translateX(-300px);
+    }
+    .file-button-empty:hover {
+      background-color: white;
+      cursor: pointer;
+      color: rgb(180, 30, 30);
+      font-weight: bold;
     }
     .aside-ref {
       border-width: 3;
@@ -97,3 +115,27 @@
     }
   }
 }
+// .admin-aside {
+//   display: "flex";
+//   flex-direction: "column";
+//   align-items: "center";
+//   margin-bottom: 40;
+//   width: 250px;
+//   height: 300px;
+//   background-image: $primary;
+//   div {
+//     width: 100%;
+//   }
+//   .aside-ref {
+//     border-width: 3;
+//     border-style: "solid";
+//     border-color: "#ccc";
+//     height: 45;
+//     line-height: 2.5;
+//     margin-top: 5;
+//     margin-bottom: 35;
+//     padding-left: 13;
+//     padding-top: 3;
+//     width: "88%";
+//   }
+// }

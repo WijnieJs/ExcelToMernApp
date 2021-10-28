@@ -63,7 +63,7 @@ class FileLoader extends Component {
                 onClick={this.handleOpenDialog}
                 className="csvparsebutton"
               >
-                SELECTEER PLANNING
+                SELECTEER BESTAND PLANNING HIER
               </button>
               <div
                 style={{
@@ -80,7 +80,7 @@ class FileLoader extends Component {
                 }}
               >
                 {file && file.name}
-                {!file && <p>Kies bestand</p>}
+                {!file && <p>...</p>}
               </div>
               <button
                 className="file-button-empty"
