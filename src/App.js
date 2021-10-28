@@ -7,6 +7,7 @@ import Fullcar from "./containers/fullcar/Fullcar";
 import Cardetail from "./containers/cardetail/Cardetail";
 import Layout from "./components/layout/Layout";
 import AdminUpload from "./containers/admin/mainAdmin";
+import Auth from "./containers/auth/Auth";
 import "./styles/main.scss";
 
 // const START = selecter()
@@ -41,6 +42,7 @@ class App extends Component {
               <Route path="/:id" exact component={Fullcar} />
               <Route path="/detail/:id/:rit" exact component={Cardetail} />
               <Route path="/admin/a/pw" exact component={AdminUpload} />
+              <Route path="/admin/login" exact component={Auth} />
             </Switch>
           </Fragment>
         </Layout>

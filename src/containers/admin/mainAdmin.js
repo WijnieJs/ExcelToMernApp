@@ -63,7 +63,11 @@ class Admin extends Component {
             uploadHanler={this.fileUploadHandler}
             onEmpty={this.fileUploadEmptySucces}
           />
-          <button className="file-button" onClick={this.selectFileData}>
+          <button
+            className="file-button"
+            style={{}}
+            onClick={this.selectFileData}
+          >
             OPSLAAN
           </button>
           <h4 className="display-message">{this.state.message}</h4>
