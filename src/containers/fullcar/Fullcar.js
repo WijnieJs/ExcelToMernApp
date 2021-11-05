@@ -3,19 +3,16 @@ import { connect } from "react-redux";
 import * as actions from "../../store/cars";
 import Button from "../../components/button/Button";
 import Spinner from "../../components/spinner/Spinner";
- 
 
 class Fullcar extends Component {
   state = {
     car: "",
     loading: true,
-    rides:  null 
-    
+    rides: null,
   };
-     componentDidMount () {
-       // BACKEND API COMMENT BACK IN
-     this.props.fetchCarInfo(this.props.match.params.id)
-   
+  componentDidMount() {
+    // BACKEND API COMMENT BACK IN
+    this.props.fetchCarInfo(this.props.match.params.id);
 
     // const copy = [...this.props.allCars[this.props.match.params.id]];
     // const idOfCar = this.props.match.params.id;
@@ -44,35 +41,34 @@ class Fullcar extends Component {
     //   final.push(car.splice(0, l));
     // });
     // const trimmed = [...final];
-   
+
     // let ridesNums = trimmed.length;
-    
+
     this.setState({
-       
       loading: false,
-       
     });
-    console.log(this.props)
+    console.log(this.props);
   }
 
   collectNames = (i) => {
-    const nameList = [...this.props.rides.rides[i]];
+    // const nameList = [...this.props.rides.rides[i]];
     const obj = [];
-    const filterResults = nameList.map((char, index) => {
-      if (char[6]) {
-        obj.push(char[6]);
-      }
-    });
-    this.props.getCustomInfo(obj)
+    console.log(this.props.rides.carId);
+    // const filterResults = nameList.map((char, index) => {
+    //   if (char[6]) {
+    //     obj.push(char[6]);
+    //   }
+    // });
+    this.props.getCustomInfo(this.props.rides.carId);
   };
 
   pushToDetail = (i) => {
-    this.collectNames(i);
+    this.collectNames(this.props.rides.carI);
     this.props.prepareForDetail(this.props.rides.rides[i]);
     this.props.history.push(`/detail/${this.props.match.params.id}/${i + 1}`);
   };
   renderButtons = () => {
-    if (!this.props.rides.rides) return null
+    if (!this.props.rides.rides) return null;
     return this.props.rides.rides.map((ride, i) => (
       <div key={i} className="full_car_select_item">
         <Button
@@ -89,7 +85,7 @@ class Fullcar extends Component {
     this.props.history.replace("/");
   };
   render() {
-    console.log(this.props)
+    console.log(this.props);
 
     let display = (
       <Fragment>
@@ -98,12 +94,14 @@ class Fullcar extends Component {
         </Button>
         <div className="Full_car_selectwrapper fadein">
           {!this.state.loading && (
-            <h1 className="Full_car_select_title">Auto: {this.props.rides.carId}</h1>
+            <h1 className="Full_car_select_title">
+              Auto: {this.props.rides.carId}
+            </h1>
           )}
 
-          {!this.state.loading && this.props.rides ? (
-            this.renderButtons()
-          ): "Loading"}
+          {!this.state.loading && this.props.rides
+            ? this.renderButtons()
+            : "Loading"}
         </div>
       </Fragment>
     );
@@ -118,7 +116,9 @@ class Fullcar extends Component {
         </Button>
         {display}
 
-        <h5 className="date_s">Datum planning : <span className="date_p">{this.props.date}</span></h5>
+        <h5 className="date_s">
+          Datum planning : <span className="date_p">{this.props.date}</span>
+        </h5>
       </Fragment>
     );
   }
@@ -126,17 +126,15 @@ class Fullcar extends Component {
 
 const mapStateToProps = (state) => {
   return {
- 
     rides: state.rides,
-    date: state.date
+    date: state.date,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     prepareForDetail: (result) => dispatch(actions.prepareForDetail(result)),
     getCustomInfo: (names) => dispatch(actions.getCustomInfo(names)),
-    fetchCarInfo:(carid) => dispatch(actions.fetchCarInfo(carid))
-    
+    fetchCarInfo: (carid) => dispatch(actions.fetchCarInfo(carid)),
   };
 };
 
